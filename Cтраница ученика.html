@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Страница ученика</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet">
+    <link rel="stylesheet" href="./Cтраница ученика_files/admin_main.css">
+</head>
+<body class="loading">
+<div class="container">
+    <h1 style="text-align:center; margin-bottom:70px; font-size:2.1em;">Личный кабинет ученика</h1>
+    <div class="menu-grid">
+
+        <a class="menu-item" href="https://sun.el-journal.ru/s_curday.php?date=2025-11-24">
+            <span class="menu-icon material-symbols-rounded" aria-hidden="true">event</span>
+            <div class="menu-text">
+                <div class="menu-title">Сегодня</div>
+                <div class="menu-desc">Уроки на сегодня</div>
+            </div>
+        </a>
+        <a class="menu-item" href="https://sun.el-journal.ru/s_debts.php">
+            <span class="menu-icon material-symbols-rounded" aria-hidden="true">warning</span>
+            <div class="menu-text">
+                <div class="menu-title">Долги</div>
+                <div class="menu-desc">Долги по предметам</div>
+            </div>
+        </a>
+        <a class="menu-item" href="https://sun.el-journal.ru/s_all_subjects.php">
+            <span class="menu-icon material-symbols-rounded" aria-hidden="true">menu_book</span>
+            <div class="menu-text">
+                <div class="menu-title">Предметы</div>
+                <div class="menu-desc">Подробная информация по отдельным предметам</div>
+            </div>
+        </a>
+        <a class="menu-item" href="https://sun.el-journal.ru/s_marks.php">
+            <span class="menu-icon material-symbols-rounded" aria-hidden="true">insights</span>
+            <div class="menu-text">
+                <div class="menu-title">Оценки</div>
+                <div class="menu-desc">Текущие оценки</div>
+            </div>
+        </a>
+        <a class="menu-item" href="https://sun.el-journal.ru/s_brains.php">
+            <span class="menu-icon material-symbols-rounded" aria-hidden="true">psychology_alt</span>
+            <div class="menu-text">
+                <div class="menu-title">Брейны</div>
+                <div class="menu-desc">Текущие брейны</div>
+            </div>
+        </a>
+        <a class="menu-item" href="https://sun.el-journal.ru/s_curweek.php">
+            <span class="menu-icon material-symbols-rounded" aria-hidden="true">calendar_month</span>
+            <div class="menu-text">
+                <div class="menu-title">Расписание на неделю</div>
+                <div class="menu-desc">Расписание уроков, ДЗ</div>
+            </div>
+        </a>
+        <a class="menu-item" href="https://sun.el-journal.ru/s_itog.php">
+            <span class="menu-icon material-symbols-rounded" aria-hidden="true">military_tech</span>
+            <div class="menu-text">
+                <div class="menu-title">Итоговые оценки/брейны</div>
+                <div class="menu-desc">Предварительные итоги года</div>
+            </div>
+        </a>
+        <a class="menu-item" href="https://sun.el-journal.ru/s_student_materials.php">
+            <span class="menu-icon material-symbols-rounded" aria-hidden="true">campaign</span>
+            <div class="menu-text">
+                <div class="menu-title">Информация</div>
+                <div class="menu-desc">Информация от учителей</div>
+            </div>
+        </a>
+        <a class="menu-item" href="https://sun.el-journal.ru/s_profile.php">
+            <span class="menu-icon material-symbols-rounded" aria-hidden="true">account_circle</span>
+            <div class="menu-text">
+                <div class="menu-title">Профиль</div>
+                <div class="menu-desc">Личные данные ученика</div>
+            </div>
+        </a>
+        <a class="menu-item" href="https://xn-----8kcahcqea8aschubmgawpfhiy3jre.xn--p1ai/" target="_blank">
+            <span class="menu-icon material-symbols-rounded" aria-hidden="true">home</span>
+            <div class="menu-text">
+                <div class="menu-title">Школа</div>
+                <div class="menu-desc">Сайт любимой школы</div>
+            </div>
+        </a>
+    </div>
+</div>
+
+<button class="theme-toggle" id="themeToggle" type="button" aria-label="Переключить тему" aria-pressed="false">
+    <span class="material-symbols-rounded" aria-hidden="true">dark_mode</span>
+</button>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const items = document.querySelectorAll('.menu-item');
+    const themeToggle = document.getElementById('themeToggle');
+    const themeToggleIcon = themeToggle.querySelector('.material-symbols-rounded');
+    const THEME_KEY = 'sun-student-theme';
+
+    items.forEach(item => {
+        const skeleton = document.createElement('div');
+        skeleton.className = 'menu-skeleton';
+        skeleton.innerHTML = `
+            <div class="skeleton-icon skeleton-shimmer"></div>
+            <div class="skeleton-text">
+                <div class="skeleton-line skeleton-title-line skeleton-shimmer"></div>
+                <div class="skeleton-line skeleton-desc-line skeleton-shimmer"></div>
+            </div>
+        `;
+        item.prepend(skeleton);
+    });
+
+    setTimeout(() => {
+        document.body.classList.remove('loading');
+        document.querySelectorAll('.menu-skeleton').forEach(el => el.remove());
+    }, 2500);
+
+    function applyTheme(mode) {
+        const isDark = mode === 'dark';
+        document.body.classList.toggle('dark-theme', isDark);
+        themeToggle.setAttribute('aria-pressed', String(isDark));
+        themeToggleIcon.textContent = isDark ? 'light_mode' : 'dark_mode';
+    }
+
+    const savedTheme = localStorage.getItem(THEME_KEY);
+    if (savedTheme === 'dark' || savedTheme === 'light') {
+        applyTheme(savedTheme);
+    } else {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        applyTheme(prefersDark ? 'dark' : 'light');
+    }
+
+    themeToggle.addEventListener('click', (e) => {
+        // 1. Запускаем волну
+        playThemeWave(e.clientX, e.clientY);
+
+        // 2. Определяем следующую тему, но пока НЕ применяем
+        const nextTheme = document.body.classList.contains('dark-theme') ? 'light' : 'dark';
+
+        // 3. Делаем задержку, чтобы сначала прошла волна
+        setTimeout(() => {
+            applyTheme(nextTheme);
+            localStorage.setItem(THEME_KEY, nextTheme);
+        }, 320); // ~0.3 сек — оптимально
+    });
+});
+
+function playThemeWave(x, y) {
+    const wave = document.createElement('div');
+    wave.className = 'theme-wave';
+    document.body.appendChild(wave);
+
+    const maxDim = Math.max(window.innerWidth, window.innerHeight) * 2;
+
+    wave.style.width = wave.style.height = maxDim + 'px';
+    wave.style.left = (x - maxDim / 2) + 'px';
+    wave.style.top = (y - maxDim / 2) + 'px';
+
+    // Запускаем волну
+    requestAnimationFrame(() => {
+        wave.style.transform = 'scale(1)';
+    });
+
+    // Убираем волну плавно
+    setTimeout(() => {
+        wave.classList.add('fade-out');
+        setTimeout(() => wave.remove(), 700);
+    }, 500);
+}
+</script>
+
+</body>
+</html>

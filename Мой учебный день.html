@@ -1,0 +1,581 @@
+
+<html lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>
+.topnav {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    box-shadow: 0 2px 16px #07503214;
+    border-radius: 13px;
+    padding: 8px 22px 8px 10px;
+    font-family: 'Montserrat', Arial, sans-serif !important;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 100;
+}
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 38px;
+    width: 40px;
+    margin-right: 12px;
+    z-index: 102;
+}
+.hamburger span {
+    display: block;
+    height: 4px;
+    width: 28px;
+    background: #075032;
+    border-radius: 3px;
+    margin: 4px 0;
+    transition: .25s;
+}
+.hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+.topnav-links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.topnav-link {
+    display: inline-flex;
+    align-items: center;
+    color: #075032 !important;
+    font-weight: 700;
+    font-size: 1.07em;
+    text-decoration: none !important;
+    background: none;
+    border-radius: 12px;
+    padding: 8px 18px 8px 8px;
+    margin-right: 2px;
+    transition: background 0.13s, color 0.13s;
+    font-family: 'Montserrat', Arial, sans-serif !important;
+    border: 2px solid transparent;
+    outline: none;
+}
+.topnav-link svg {
+    margin-right: 7px;
+    vertical-align: middle;
+}
+.topnav-link.active,
+.topnav-link:hover,
+.topnav-link:focus {
+    background: #075032 !important;
+    color: #fff !important;
+    border: 2px solid #075032;
+    text-decoration: none !important;
+}
+.topnav-link:active {
+    background: #01381e !important;
+    color: #fff !important;
+    border: 2px solid #075032;
+}
+.topnav-link, .topnav-link:visited, .topnav-link:active, .topnav-link:hover {
+    text-decoration: none !important;
+}
+.topnav-spacer {
+    flex: 1;
+}
+.topnav-profile {
+    display: flex;
+    align-items: center;
+}
+.topnav-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border: 2px solid #07503222;
+    box-shadow: 0 1px 7px #07503217;
+    object-fit: cover;
+    background: #fff;
+    transition: box-shadow .13s;
+}
+.topnav-profile a:hover .topnav-avatar, .topnav-profile a:focus .topnav-avatar {
+    box-shadow: 0 2px 12px #07503248;
+    border-color: #07503244;
+}
+@media (max-width: 800px) {
+    .topnav {
+        padding: 4px 3vw 4px 2vw;
+        font-size: 0.97em;
+        flex-wrap: wrap;
+        position: relative;
+    }
+    .hamburger { display: flex; }
+    .topnav-links {
+        display: none;
+        flex-direction: column;
+        width: 100vw;
+        max-width: 100vw;
+        position: absolute;
+        left: 0;
+        top: 54px;
+        background: #fff;
+        border-radius: 0 0 13px 13px;
+        box-shadow: 0 7px 32px #07503226;
+        padding: 14px 0 8px 0;
+        z-index: 101;
+    }
+    .topnav-links.show { display: flex; }
+    .topnav-link {
+        font-size: 1.1em;
+        padding: 12px 8vw 12px 34px;
+        margin: 0;
+        border-radius: 0;
+        border: none;
+        border-bottom: 1px solid #e5eae7;
+    }
+    .topnav-link:last-child { border-bottom: none; }
+    .topnav-spacer { display: none; }
+    .topnav-profile {
+        margin-left: auto;
+        margin-right: 14px;
+        margin-top: 3px;
+    }
+    .topnav-avatar { width: 32px; height: 32px; }
+}
+</style>
+
+</head><body><div class="topnav">
+    <button class="hamburger" id="hamburger-btn" aria-label="Открыть меню">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+    <nav class="topnav-links" id="topnav-links">
+        <a class="topnav-link" href="https://sun.el-journal.ru/student_main.php" title="Выход">
+            <svg width="22" height="22" fill="none" stroke="#177C6A" stroke-width="1.7" viewBox="0 0 24 24"><path d="M3 10L12 3l9 7M4 10v10h5v-6h6v6h5V10" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            Главная
+        </a>
+        <a class="topnav-link active" href="https://sun.el-journal.ru/s_curday.php?date=2025-11-26">
+            <svg width="22" height="22" fill="none" stroke="#177C6A" stroke-width="1.7" viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"></circle><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"></path><circle cx="17" cy="7" r="4"></circle></svg>
+            Сегодня
+        </a>
+        <a class="topnav-link" href="https://sun.el-journal.ru/s_debts.php">
+            <svg width="22" height="22" fill="none" stroke="#177C6A" stroke-width="1.7" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>
+            Долги
+        </a>
+        
+        <a class="topnav-link" href="https://sun.el-journal.ru/s_all_subjects.php">
+            <svg width="22" height="22" fill="none" stroke="#177C6A" stroke-width="1.7" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>
+            Предметы
+        </a>        
+ 
+        
+        
+        <a class="topnav-link" href="https://sun.el-journal.ru/s_curweek.php">
+            <svg width="22" height="22" fill="none" stroke="#177C6A" stroke-width="1.7" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>
+            Расписание
+        </a>
+        <a class="topnav-link" href="https://sun.el-journal.ru/s_marks.php">
+            <svg width="22" height="22" fill="none" stroke="#177C6A" stroke-width="1.7" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>
+            Оценки
+        </a>
+        <a class="topnav-link" href="https://sun.el-journal.ru/s_brains.php">
+            <svg width="22" height="22" fill="none" stroke="#177C6A" stroke-width="1.7" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="16" rx="2"></rect><path d="M16 2v4M8 2v4M5 10h14"></path></svg>
+            Брейны
+        </a>
+        <a class="topnav-link" href="https://sun.el-journal.ru/s_itog.php">
+            <svg width="22" height="22" fill="none" stroke="#177C6A" stroke-width="1.7" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>
+            Итог
+        </a>
+        <a class="topnav-link" href="https://sun.el-journal.ru/s_student_materials.php">
+            <svg width="22" height="22" fill="none" stroke="#177C6A" stroke-width="1.7" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"></rect><path d="M16 2v4M8 2v4M3 10h18"></path></svg>
+            Информация
+        </a>
+    </nav>
+    <span class="topnav-spacer"></span>
+    <div class="topnav-profile">
+        <a href="https://sun.el-journal.ru/s_profile.php" title="Профиль">
+            <img src="./Мой учебный день_files/137_1758552604.gif" class="topnav-avatar" alt="Аватар" title="Оскорбин Сеня">
+        </a>
+    </div>
+</div>
+<script>
+document.getElementById('hamburger-btn').onclick = function(){
+    this.classList.toggle('active');
+    document.getElementById('topnav-links').classList.toggle('show');
+};
+// Чтобы меню автоматически закрывалось при ресайзе
+window.addEventListener('resize', function() {
+    if(window.innerWidth > 800) {
+        document.getElementById('topnav-links').classList.remove('show');
+        document.getElementById('hamburger-btn').classList.remove('active');
+    }
+});
+</script>
+
+
+
+    
+    <title>Мой учебный день</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <style>
+        @font-face {
+            font-family: 'Tilda Sans', Arial, sans-serif !important;
+            src: url('fonts/TildaSans-Regular.woff2') format('woff2'),
+                 url('fonts/TildaSans-Regular.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Tilda Sans', Arial, sans-serif !important;
+            src: url('fonts/TildaSans-Bold.woff2') format('woff2'),
+                 url('fonts/TildaSans-Bold.woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+        }
+        body {
+            background: #efefef;
+            font-family:'Tilda Sans', Arial, sans-serif;
+            color: #075032;
+            margin: 0;
+        }
+        .container {
+            max-width: 740px;
+            margin: 32px auto 0;
+            padding: 32px 12px 26px 12px;
+            background: #fff;
+            border-radius: 22px;
+            box-shadow: 0 7px 28px rgba(7,80,50,0.08);
+            font-family: 'Tilda Sans', Arial, sans-serif !important;
+        }
+        .header { text-align: center; margin-bottom: 18px; font-family: 'Tilda Sans', Arial, sans-serif !important;; }
+        .header-period { margin-bottom: 7px; color: #075032; font-weight: 700; font-size: 1.08em; }
+        .nav { display: flex; justify-content: space-between; align-items: center; margin: 23px 0 16px 0; font-family: 'Tilda Sans', Arial, sans-serif !important; }
+        .nav-btn {
+            background: #075032;
+            color: #fff;
+            font-family: 'Tilda Sans', Arial, sans-serif !important;
+            font-size: 1.18em;
+            padding: 13px 24px;
+            border: none;
+            border-radius: 17px;
+            cursor: pointer;
+            transition: .13s;
+            font-weight: 700;
+            box-shadow: 0 2px 7px rgba(7,80,50,0.09);
+        }
+        .nav-btn:disabled { background: #c2c2c2; color: #fff; cursor: not-allowed; }
+        .nav-btn:hover:not(:disabled) { background: #01381e; }
+        .date-btn {
+            border: 3px solid #075032;
+            background: #fff;
+            border-radius: 15px;
+            font-family: 'Tilda Sans', Arial, sans-serif !important;
+            font-size: 1.13em;
+            font-weight: 700;
+            color: #075032;
+            padding: 8px 36px;
+            cursor: pointer;
+            box-shadow: 0 1px 7px rgba(7,80,50,0.06);
+            transition: box-shadow .16s;
+        }
+        .curday-card {
+            background: #fff;
+            border: 3px solid #075032;
+            border-radius: 23px;
+            padding: 18px 18px 10px 18px;
+            margin-bottom: 22px;
+            box-shadow: 0 2px 11px rgba(7,80,50,0.07);
+            font-family: 'Tilda Sans', Arial, sans-serif !important;
+        }
+        .curday-table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 20px; }
+        .tbl {
+            min-width: 650px;
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            font-family: 'Tilda Sans', Arial, sans-serif !important;
+            border: 2px solid #075032;
+            border-radius: 18px;
+            overflow: hidden;
+        }
+        .tbl th {
+            background: #ebf0ed;
+            font-weight: 700;
+            color: #075032;
+            font-family: 'Tilda Sans', Arial, sans-serif !important;
+            border-bottom: 2px solid #075032;
+        }
+        .tbl tr { transition: background 0.15s; }
+        .tbl tr.row-odd { background: #fff; }
+        .tbl tr.row-even { background: #f6f6f6; }
+        .tbl td, .tbl th { padding: 10px 7px; text-align: center; font-family: 'Tilda Sans', Arial, sans-serif !important; border-bottom: 1px solid #e1e1e1; }
+        .tbl tr.divider td { background: #f3f3f3; height: 5px; padding: 0; border: none; }
+        .tbl td { font-size: 1.05em; color: #075032; }
+        .subject-link { color: #075032; font-weight: 600; text-decoration: none; transition: .12s; font-family: 'Tilda Sans', Arial, sans-serif !important; }
+        .subject-link:hover { color: #01381e; text-decoration: underline; }
+        .mark { color: #075032; font-weight: 700; font-size: 2.1em; font-family: 'Tilda Sans', Arial, sans-serif !important; }
+        .mark-red { color: #e8453c; font-size: 2.1em; font-family: 'Tilda Sans', Arial, sans-serif !important; }
+        .hw-red { color: #e74c3c; }
+        .teacher-comm {
+            color: #013d27;
+            font-size: 0.97em;
+            background: #f3f3f3;
+            border-radius: 8px;
+            padding: 4px 8px;
+            display: inline-block;
+            margin-top: 3px;
+            font-family: 'Tilda Sans', Arial, sans-serif !important;
+        }
+        .files-list { margin: 4px 0 0 0; display: flex; gap: 7px; flex-wrap: wrap; }
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            background: #075032;
+            color: #fff;
+            font-family: 'Tilda Sans', Arial, sans-serif !important;
+            font-size: 1.09em;
+            font-weight: 700;
+            padding: 8px 21px;
+            border: none;
+            border-radius: 13px;
+            text-decoration: none;
+            transition: background .14s;
+            box-shadow: 0 2px 7px 0 rgba(7,80,50,0.08);
+            margin: 3px 0;
+            cursor: pointer;
+        }
+        .download-btn:hover {
+            background: #01381e;
+            color: #fff;
+            text-decoration: none;
+        }
+        .label-profile {
+            color: #fff;
+            background: #075032;
+            padding: 2px 10px 2px 10px;
+            border-radius: 8px;
+            font-size: 0.92em;
+            font-weight: 600;
+            margin-left: 6px;
+            font-family: 'Tilda Sans', Arial, sans-serif !important;
+        }
+        .lesson-time { font-size: 1.05em; font-weight: 600; color: #075032; }
+        .comment-cell { min-width: 110px; font-family: 'Tilda Sans', Arial, sans-serif !important; }
+        @media (max-width:850px) {
+            .container { padding:8px 0; }
+            .curday-card { padding:8px 2px 2px 2px; }
+        }
+        @media (max-width:700px){
+            .container{max-width:99vw;padding:7px 2vw;}
+            .curday-card { padding:8px 2px 2px 2px; }
+            .nav-btn, .date-btn{padding:10px 10px;font-size:1em;}
+            .tbl th, .tbl td { padding:7px 4px; font-size:0.98em; }
+        }
+        @media (max-width:600px) {
+            .tbl th, .tbl td { padding:6px 2px; font-size:0.93em;}
+            .header-date { font-size: 1em; }
+        }
+        .date-modal {
+            display:none;position:fixed;z-index:10001;left:0;top:0;width:100vw;height:100vh;
+            background:rgba(7,80,50,0.07);align-items:center;justify-content:center;
+        }
+        .date-modal-content {
+            background:#fff;
+            padding:32px 38px 28px 38px;
+            border-radius:20px;
+            box-shadow:0 2px 30px rgba(7,80,50,0.17);
+            width:330px;
+            max-width:94vw;
+            text-align:center;
+            border:3px solid #075032;
+            font-family: 'Tilda Sans', Arial, sans-serif !important;
+        }
+        a, a:visited, a:active, a:hover, a:focus {
+    text-decoration: none !important;
+}
+    </style>
+
+
+    <div class="container">
+        <div class="header">
+            <div class="header-period">2025/2026 учебный год &nbsp; | &nbsp; 2 - Второй триместр</div>
+        </div>
+        <div class="nav">
+            <form style="display:inline;" method="get">
+                <input type="hidden" name="date" value="2025-11-21">
+                <button class="nav-btn" type="submit">←</button>
+            </form>
+            <button id="datePickerBtn" type="button" class="date-btn">
+                Понедельник, 24.11.2025            </button>
+            <form style="display:inline;" method="get">
+                <input type="hidden" name="date" value="2025-11-25">
+                <button class="nav-btn" type="submit">→</button>
+            </form>
+        </div>
+        <div id="dateModal" class="date-modal">
+            <div class="date-modal-content">
+                <div style="font-size:1.16em;margin-bottom:12px;font-weight:600;color:#075032;">
+                    Выберите дату
+                </div>
+                <form method="get" id="dateFormModal">
+                    <input type="date" name="date" id="dateInput" value="2025-11-24" min="2025-09-01" max="2025-11-28" style="font-size:1.13em;padding:7px 13px;border-radius:10px;border:2px solid #075032;font-family:&#39;Tilda Sans&#39;;">
+                    <div style="margin-top:18px;">
+                        <button type="submit" class="nav-btn" style="padding:10px 33px;font-size:1.13em;">Перейти</button>
+                        <button type="button" id="closeDateModal" class="nav-btn" style="padding:10px 23px;font-size:1.13em;background:#f3f3f3;color:#075032;border:2px solid #075032;">Отмена</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="curday-card">
+            <div class="curday-table-wrap">
+                                <table class="tbl">
+                    <tbody><tr>
+                        <th>№</th>
+                        <th>Предмет</th>
+                           <th>Оценки</th>
+                        <th>Тема</th>
+                        <th>ДЗ / Файлы</th>
+
+                        <th>Комментарий</th>
+                    </tr>
+                                                            <tr class="row-even">
+                        <td>1</td>
+                        <td>
+                                                        <a href="https://sun.el-journal.ru/s_subject.php?subject_id=9" class="subject-link">География</a>
+                        </td>
+                        
+                        
+                                                <td>
+                                                    </td>
+                        
+                        
+                        
+                        
+                        <td>Подведение итогов: рельеф РФ гидрография РФ, климат РФ</td>
+                        <td>
+                            <span class="">
+                                                            нет                                                         </span>
+                                                                                </td>
+
+                        <td class="comment-cell">
+                                                    </td>
+                    </tr>
+                    <tr class="divider"><td colspan="7"></td></tr>
+                                                            <tr class="row-odd">
+                        <td>2</td>
+                        <td>
+                                                        <a href="https://sun.el-journal.ru/s_subject.php?subject_id=2" class="subject-link">Русский язык</a>
+                        </td>
+                        
+                        
+                                                <td>
+                                                    </td>
+                        
+                        
+                        
+                        
+                        <td>Суффиксы</td>
+                        <td>
+                            <span class="">
+                                                            <span style="color:#aaa;">—</span>
+                                                        </span>
+                                                                                </td>
+
+                        <td class="comment-cell">
+                                                    </td>
+                    </tr>
+                    <tr class="divider"><td colspan="7"></td></tr>
+                                                            <tr class="row-even">
+                        <td>3</td>
+                        <td>
+                                                        <a href="https://sun.el-journal.ru/s_subject.php?subject_id=8" class="subject-link">Физика</a>
+                        </td>
+                        
+                        
+                                                <td>
+                                                    </td>
+                        
+                        
+                        
+                        
+                        <td></td>
+                        <td>
+                            <span class="">
+                                                            Теория - параграфы 15-17 и 22. Задачи из файла (последние 3)                                                         </span>
+                                                                                </td>
+
+                        <td class="comment-cell">
+                                                    </td>
+                    </tr>
+                    <tr class="divider"><td colspan="7"></td></tr>
+                                                            <tr class="row-odd">
+                        <td>4</td>
+                        <td>
+                                                        <a href="https://sun.el-journal.ru/s_subject.php?subject_id=1" class="subject-link">Английский язык</a>
+                        </td>
+                        
+                        
+                                                <td>
+                                                    </td>
+                        
+                        
+                        
+                        
+                        <td>Present perfect simple/continuous</td>
+                        <td>
+                            <span class="">
+                                                            No HW                                                         </span>
+                                                                                </td>
+
+                        <td class="comment-cell">
+                                                    </td>
+                    </tr>
+                    <tr class="divider"><td colspan="7"></td></tr>
+                                                            <tr class="row-even">
+                        <td>5</td>
+                        <td>
+                                                        <a href="https://sun.el-journal.ru/s_subject.php?subject_id=3" class="subject-link">Математика</a>
+                        </td>
+                        
+                        
+                                                <td>
+                                                    </td>
+                        
+                        
+                        
+                        
+                        <td></td>
+                        <td>
+                            <span class="">
+                                                            <span style="color:#aaa;">—</span>
+                                                        </span>
+                                                                                </td>
+
+                        <td class="comment-cell">
+                                                    </td>
+                    </tr>
+                    <tr class="divider"><td colspan="7"></td></tr>
+                                    </tbody></table>
+                            </div>
+        </div>
+    </div>
+<script>
+document.getElementById('datePickerBtn').addEventListener('click', function(){
+    document.getElementById('dateModal').style.display = 'flex';
+    setTimeout(function(){ document.getElementById('dateInput').focus(); }, 100);
+});
+document.getElementById('closeDateModal').onclick = function(){
+    document.getElementById('dateModal').style.display = 'none';
+};
+document.getElementById('dateModal').onclick = function(e){
+    if(e.target === this) this.style.display='none';
+};
+</script>
+
+
+
+</body></html>
