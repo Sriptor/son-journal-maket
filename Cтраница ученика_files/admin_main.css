@@ -38,6 +38,7 @@ body {
     background: var(--container-bg);
     position: relative;
     border-radius: 60px;
+    --webkit-tap-highlight-color: transparent;
 }
 .menu-grid {
     display: grid;
