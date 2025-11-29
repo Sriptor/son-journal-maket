@@ -30,6 +30,7 @@ body {
     color: var(--text-primary);
     font-family: 'Montserrat', Arial, sans-serif;
     margin: 0;
+    --webkit-tap-highlight-color: transparent;
 }
 .container {
     max-width: 1300px;
