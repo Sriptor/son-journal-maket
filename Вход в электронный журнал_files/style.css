@@ -30,6 +30,7 @@ body {
     color: var(--text-primary);
     font-family: 'Montserrat', Arial, sans-serif;
     margin: 0;
+    --webkit-tap-highlight-color: transparent;
 }
 body.login-body {
     background: var(--page-bg);
@@ -48,6 +49,7 @@ body.login-body {
     position: relative;
     border-radius: 60px;
     text-align: center;
+    --webkit-tap-highlight-color: transparent;
 }
 
 .login-form {
