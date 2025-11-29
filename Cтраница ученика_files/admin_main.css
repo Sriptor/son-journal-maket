@@ -30,7 +30,6 @@ body {
     color: var(--text-primary);
     font-family: 'Montserrat', Arial, sans-serif;
     margin: 0;
-    --webkit-tap-highlight-color: transparent;
 }
 .container {
     max-width: 1300px;
@@ -39,7 +38,6 @@ body {
     background: var(--container-bg);
     position: relative;
     border-radius: 60px;
-    --webkit-tap-highlight-color: transparent;
 }
 .menu-grid {
     display: grid;
@@ -62,7 +60,7 @@ body {
     will-change: transform;
     position: relative;
     overflow: hidden;
-    --webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent;
 }
 .menu-item:hover {
     transform: translateY(-2px) scale(1.05);
@@ -185,7 +183,7 @@ body.dark-theme .skeleton-shimmer {
     cursor: pointer;
     transition: transform .25s, background .25s, color .25s;
     z-index: 100;
-    --webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent;
 }
 .theme-toggle:hover {
     transform: translateY(-2px) scale(1.06) rotate(16deg);
