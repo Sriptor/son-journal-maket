@@ -126,7 +126,6 @@ body.login-body {
     cursor: pointer;
     transition: transform .25s, background .25s, color .25s;
     margin: 20px auto 0;
-    position: static;
 }
 .theme-toggle:hover {
     transform: translateY(-2px) scale(1.1) rotate(16deg);
@@ -389,6 +388,12 @@ body.loading .login-container > :not(.login-skeleton) {
 }
 .theme-wave.fade-out {
     opacity: 0;
+}
+
+@media (max-width: 768px) {
+    body.login-body {
+        overflow: auto;
+    }
 }
 
 @media (max-width: 600px) {
