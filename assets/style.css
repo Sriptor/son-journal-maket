@@ -1,0 +1,89 @@
+/* Google Fonts: Onest */
+@import url('https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800&display=swap');
+/* Font Awesome 6 */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+
+:root {
+    /* Brand Colors */
+    --primary-color: #075032;
+    --primary-hover: #0a6b43;
+    --primary-light: rgba(7, 80, 50, 0.1);
+
+    /* Light Theme Tokens */
+    --bg-color: #f8faf9;
+    --surface-color: #ffffff;
+    --text-main: #1a1c1b;
+    --text-muted: #5f6361;
+    --border-color: #e2e8e5;
+    --input-bg: #ffffff;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+    /* Animation */
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] {
+    --bg-color: #0d1110;
+    --surface-color: #161b1a;
+    --text-main: #f1f3f2;
+    --text-muted: #949a97;
+    --border-color: #2a312e;
+    --input-bg: #1c2220;
+    --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'Onest', sans-serif;
+    background-color: var(--bg-color);
+    /* Создание фоновой сетки */
+    background-image:
+        linear-gradient(var(--border-color) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border-color) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: center center;
+
+    color: var(--text-main);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 700;
+}
+
+button {
+    cursor: pointer;
+    font-family: inherit;
+    border: none;
+    outline: none;
+}
+
+input {
+    font-family: inherit;
+    outline: none;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
