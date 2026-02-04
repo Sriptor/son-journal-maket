@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель управления | Sun Journal</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body class="app-container" id="app">
+
+    <!-- Control Buttons -->
+    <div class="nav-controls">
+        <button class="control-btn" id="themeToggle" title="Переключить тему">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+    </div>
+
+    <!-- Floating Left Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="assets/logo.png" alt="Logo" class="sidebar-logo">
+            <span class="sidebar-brand">Sun Journal</span>
+        </div>
+
+        <nav class="nav-menu">
+            <a href="dashboard.html" class="nav-item active">
+                <i class="fa-solid fa-house"></i>
+                <span>Главная</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fa-solid fa-calendar-week"></i>
+                <span>Расписание</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Оценки</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fa-solid fa-book-open"></i>
+                <span>Предметы</span>
+            </a>
+            <a href="#" class="nav-item">
+                <i class="fa-solid fa-folder-open"></i>
+                <span>Материалы</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-footer">
+            <!-- Кнопка сорачивания (теперь НАД профилем) -->
+            <button class="collapse-sidebar-btn" id="collapseBtn" title="Свернуть/Развернуть">
+                <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <div class="sidebar-footer-top">
+                <div class="user-profile-preview">
+                    <div class="user-avatar">УЧ</div>
+                    <div class="user-info-text">
+                        <span class="user-name">Иван Иванов</span>
+                        <span class="user-role">9 "А" класс</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-wrapper">
+        <header class="content-header">
+            <div class="welcome-section">
+                <h1>Привет, Иван! 👋</h1>
+                <p>Твой учебный день в самом разгаре.</p>
+            </div>
+        </header>
+
+        <!-- Feature Grid -->
+        <div class="dashboard-grid">
+            <a href="#" class="card-widget">
+                <div class="card-badge">3 урока</div>
+                <div class="card-icon">
+                    <i class="fa-solid fa-calendar-day"></i>
+                </div>
+                <div class="card-info">
+                    <h3>Сегодня</h3>
+                    <p>Твое расписание и задания на текущий день.</p>
+                </div>
+            </a>
+
+            <a href="#" class="card-widget">
+                <div class="card-badge" style="background: rgba(239, 68, 68, 0.1); color: #ef4444;">2 задачи</div>
+                <div class="card-icon" style="background: rgba(239, 68, 68, 0.1); color: #ef4444;">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <div class="card-info">
+                    <h3>Долги</h3>
+                    <p>Пропущенные задания и задолженности по предметам.</p>
+                </div>
+            </a>
+
+            <a href="#" class="card-widget">
+                <div class="card-icon">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+                <div class="card-info">
+                    <h3>Предметы</h3>
+                    <p>Список курсов и подробная информация по каждому.</p>
+                </div>
+            </a>
+
+            <a href="#" class="card-widget">
+                <div class="card-icon">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <div class="card-info">
+                    <h3>Оценки</h3>
+                    <p>Успеваемость и статистика твоих баллов.</p>
+                </div>
+            </a>
+
+            <a href="#" class="card-widget">
+                <div class="card-icon">
+                    <i class="fa-solid fa-brain"></i>
+                </div>
+                <div class="card-info">
+                    <h3>Брейны</h3>
+                    <p>Твои достижения и специальные баллы (брейны).</p>
+                </div>
+            </a>
+
+            <a href="#" class="card-widget">
+                <div class="card-icon">
+                    <i class="fa-solid fa-calendar-week"></i>
+                </div>
+                <div class="card-info">
+                    <h3>На неделю</h3>
+                    <p>Полное расписание уроков и домашних заданий.</p>
+                </div>
+            </a>
+
+            <a href="#" class="card-widget">
+                <div class="card-icon">
+                    <i class="fa-solid fa-award"></i>
+                </div>
+                <div class="card-info">
+                    <h3>Итоги</h3>
+                    <p>Предварительные результаты за четверть и год.</p>
+                </div>
+            </a>
+
+            <a href="#" class="card-widget">
+                <div class="card-icon">
+                    <i class="fa-solid fa-bullhorn"></i>
+                </div>
+                <div class="card-info">
+                    <h3>Информация</h3>
+                    <p>Важные объявления и материалы от учителей.</p>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+        const html = document.documentElement;
+
+        themeToggle.addEventListener('click', () => {
+            const isDark = html.getAttribute('data-theme') === 'dark';
+            const newTheme = isDark ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            themeIcon.className = isDark ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+            localStorage.setItem('theme', newTheme);
+        });
+
+        // Load Saved Theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            html.setAttribute('data-theme', 'dark');
+            themeIcon.className = 'fa-solid fa-sun';
+        }
+
+        // Sidebar Collapse (Icons only)
+        const collapseBtn = document.getElementById('collapseBtn');
+        const collapseIcon = collapseBtn.querySelector('i');
+        const sidebar = document.getElementById('sidebar');
+        const app = document.getElementById('app');
+
+        collapseBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('collapsed');
+            app.classList.toggle('nav-collapsed');
+
+            // Меняем иконку стрелочки
+            if (sidebar.classList.contains('collapsed')) {
+                collapseIcon.className = 'fa-solid fa-chevron-right';
+            } else {
+                collapseIcon.className = 'fa-solid fa-chevron-left';
+            }
+        });
+    </script>
+</body>
+
+</html>
