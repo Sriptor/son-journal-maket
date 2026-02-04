@@ -170,7 +170,8 @@
                 <img src="https://sun.el-journal.ru/137_1758552604.gif" alt="Avatar" class="modal-avatar"
                     id="profileAvatar">
                 <label for="avatarUpload" class="upload-btn-label">
-                    <i class="fa-solid fa-camera"></i> Сменить фото
+                    <span>Сменить фото</span>
+                    <i class="fa-solid fa-camera"></i>
                 </label>
                 <input type="file" id="avatarUpload" hidden accept="image/*">
             </div>
@@ -195,7 +196,10 @@
             </form>
 
             <div class="modal-actions">
-                <button class="btn-primary">Сохранить изменения</button>
+                <button class="btn-primary">
+                    <span>Сохранить изменения</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
                 <button class="btn-secondary" id="closeModal">Отмена</button>
             </div>
         </div>
@@ -237,6 +241,26 @@
                 collapseIcon.className = 'fa-solid fa-chevron-right';
             } else {
                 collapseIcon.className = 'fa-solid fa-chevron-left';
+            }
+        });
+
+        // Profile Modal Logic
+        const profileBtn = document.querySelector('.user-profile-preview');
+        const profileModal = document.getElementById('profileModal');
+        const closeModal = document.getElementById('closeModal');
+
+        profileBtn.addEventListener('click', () => {
+            profileModal.classList.add('active');
+        });
+
+        closeModal.addEventListener('click', () => {
+            profileModal.classList.remove('active');
+        });
+
+        // Close on overlay click
+        profileModal.addEventListener('click', (e) => {
+            if (e.target === profileModal) {
+                profileModal.classList.remove('active');
             }
         });
     </script>

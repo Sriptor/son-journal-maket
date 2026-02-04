@@ -1,5 +1,5 @@
-/* Google Fonts: Onest */
-@import url('https://fonts.googleapis.com/css2?family=Onest:wght@300;400;500;600;700;800&display=swap');
+/* Google Sans (Product Sans) */
+@import url('https://fonts.cdnfonts.com/css/product-sans');
 /* Font Awesome 6 */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
 
@@ -52,7 +52,7 @@
 }
 
 body {
-    font-family: 'Onest', sans-serif;
+    font-family: 'Product Sans', sans-serif;
     background-color: var(--bg-color);
     /* Глобальная сетка на фоне */
     background-image:
@@ -76,11 +76,34 @@ h6 {
     font-weight: 700;
 }
 
-button {
+button,
+input,
+select,
+textarea {
     cursor: pointer;
     font-family: inherit;
     border: none;
     outline: none;
+}
+
+/* --- Custom Scrollbar --- */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 10px;
+    transition: var(--transition);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-muted);
 }
 
 /* --- Layout Structure --- */
@@ -402,7 +425,6 @@ button {
 }
 
 .card-widget:hover {
-    transform: translateY(-5px);
     box-shadow: var(--shadow-md);
     border-color: var(--primary-color);
 }
@@ -523,6 +545,25 @@ button {
     box-shadow: var(--shadow-md);
     transform: scale(0.9) translateY(20px);
     transition: var(--transition);
+
+    /* Стилизация скроллбара конкретно для модалки */
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-color) transparent;
+}
+
+.modal-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.modal-container::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 20px 0;
+    /* Чтобы скроллбар не упирался в края скругления */
+}
+
+.modal-container::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 10px;
 }
 
 .modal-overlay.active .modal-container {
@@ -572,11 +613,35 @@ button {
     font-weight: 600;
     cursor: pointer;
     transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    overflow: hidden;
+}
+
+.upload-btn-label span {
+    transition: transform 0.3s ease;
+}
+
+.upload-btn-label i {
+    width: 0;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+    font-size: 14px;
 }
 
 .upload-btn-label:hover {
     background: var(--primary-color);
     color: white;
+    gap: 8px;
+}
+
+.upload-btn-label:hover i {
+    width: 14px;
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .profile-form-grid {
@@ -628,11 +693,33 @@ button {
     font-weight: 600;
     font-size: 16px;
     transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    overflow: hidden;
+}
+
+.btn-primary span {
+    transition: transform 0.3s ease;
+}
+
+.btn-primary i {
+    width: 0;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
     background: var(--primary-hover);
-    transform: translateY(-2px);
+    gap: 12px;
+}
+
+.btn-primary:hover i {
+    width: 18px;
+    opacity: 1;
+    transform: translateX(0);
 }
 
 .btn-secondary {
