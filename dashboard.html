@@ -159,6 +159,48 @@
         </div>
     </main>
 
+    <!-- Profile Modal -->
+    <div class="modal-overlay" id="profileModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2>Профиль ученика</h2>
+            </div>
+
+            <div class="profile-avatar-section">
+                <img src="https://sun.el-journal.ru/137_1758552604.gif" alt="Avatar" class="modal-avatar"
+                    id="profileAvatar">
+                <label for="avatarUpload" class="upload-btn-label">
+                    <i class="fa-solid fa-camera"></i> Сменить фото
+                </label>
+                <input type="file" id="avatarUpload" hidden accept="image/*">
+            </div>
+
+            <form class="profile-form-grid">
+                <div class="input-group">
+                    <label>Фамилия</label>
+                    <input type="text" value="Оскорбин" placeholder="Фамилия">
+                </div>
+                <div class="input-group">
+                    <label>Имя</label>
+                    <input type="text" value="Сеня" placeholder="Имя">
+                </div>
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="email" value="marchenko.i.m@mail.ru" placeholder="email@example.com">
+                </div>
+                <div class="input-group">
+                    <label>Дата рождения</label>
+                    <input type="date" value="2012-07-05">
+                </div>
+            </form>
+
+            <div class="modal-actions">
+                <button class="btn-primary">Сохранить изменения</button>
+                <button class="btn-secondary" id="closeModal">Отмена</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         // Theme Toggle
         const themeToggle = document.getElementById('themeToggle');
